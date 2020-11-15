@@ -1,0 +1,56 @@
+########################################### RETO 1 SESIÓN 5 ###############################
+
+1.- Propiedades que no permitan fiestas.
+
+{
+ filter: {
+  house_rules: RegExp('.*no parties.*', i)
+ }
+}
+
+2.- Propiedades que admitan mascotas.
+
+{
+ filter: {
+  house_rules: RegExp('only.*pets allowed', i)
+ }
+}
+
+3.-Propiedades que no permitan fumadores.
+
+{
+ filter: {
+  house_rules: RegExp('.*No Smoking.*', i)
+ }
+}
+
+4.- Propiedades que no permitan fiestas ni fumadores.
+
+{
+ filter: {
+  house_rules: RegExp('No parties|no smoking', i)
+ }
+}
+
+
+####################################################### RETO 2 SESIÓN 5 ##################################################################
+
+Usando la colección sample_airbnb.listingsAndReviews, agrega un filtro que permita obtener todas las publicaciones que tengan 50 o más comentarios, que la valoración sea mayor o igual a 80, que cuenten con conexión a Internet vía cable y estén ubicada en Brazil.
+
+{
+ filter: {
+  number_of_reviews: {
+   $gte: 50
+  },
+  'review_scores.review_scores_rating': {
+   $gte: 80
+  },
+  amenities: {
+   $in: [
+    RegExp('Ethernet', i)
+   ]
+  },
+  'address.country': 'Brazil'
+ }
+}
+
